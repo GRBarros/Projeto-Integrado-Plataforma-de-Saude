@@ -10,7 +10,7 @@ def cadastro():
     print("==== CADASTRO DE PACIENTE ====")
     paciente['nome'] = str(input("Nome do paciente: ")).capitalize()
     paciente['idade'] = int(input("Idade: "))
-    paciente['Telefone'] = input("Telefone: ")
+    paciente['telefone'] = str(input("Telefone: "))
     lista_cadastro.append(paciente.copy())
     
     print("\nCADASTRO REALIZADO COM SUCESSO!\n")
@@ -25,14 +25,18 @@ def buscar():
 
 #opção 4: Listar todos os pacientes
 def lista():
-    x = 0
+    print(f"{'NOME':^30}|{'IDADE':^}|{'TELEFONE':^15}|")
     for c in lista_cadastro:
-        x += 1
-        print(f"######### PACIENTE {x} #########")
+
         for chave, valor in c.items():
-            print(f"{chave.capitalize()}: {valor}")
+            if chave == 'nome':
+                print(f"{valor:<30}", end='|')
+            if chave == 'idade':
+                print(f"{valor:^5}", end="|")
+            if chave == 'telefone':
+                print(f"{valor:^15}", end='|')                
         
-        print("\n")   
+           
     print("\n")
 
 def sair():
