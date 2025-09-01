@@ -1,5 +1,23 @@
 # Desenvolvimento de uma Plataforma de Saúde #
 
+# Lista / Dicionário
+paciente = dict()
+lista_cadastro = list()
+
+
+# Opção 1: Cadastrar pacientes.
+#def cadastro():
+
+# Opção 2: Ver estatísticas
+#def estatiscicas():
+    
+# Opção 3: Buscar paciente
+#def buscar():
+
+#opção 4: Listar todos os pacientes
+#def Lista():
+
+
 # Menu 
 def menu():
     print("==== SISTEMA CLÍNICA VIDA+ ====")
