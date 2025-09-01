@@ -25,7 +25,15 @@ def buscar():
 
 #opção 4: Listar todos os pacientes
 def lista():
-    print(lista_cadastro)
+    x = 0
+    for c in lista_cadastro:
+        x += 1
+        print(f"######### PACIENTE {x} #########")
+        for chave, valor in c.items():
+            print(f"{chave.capitalize()}: {valor}")
+        
+        print("\n")   
+    print("\n")
 
 def sair():
     exit()
