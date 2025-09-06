@@ -37,31 +37,38 @@ def cadastro():
 def estatisticas():
     total_cadastros = 0
     soma_idade = 0
+    menor_idade = 999
     maior_idade = 0
- 
+    
     for dicionario in lista_cadastro:
         total_cadastros += 1  # Quantidade total de pacientes
         
         soma_idade += dicionario['idade']   # Soma idade dos pacientes
     
-    if dicionario['idade'] > maior_idade:   # Paciente mais novo e mais velho
-        maior_idade = dicionario['idade']
+        if dicionario['idade'] > maior_idade:   # Paciente mais novo e mais velho
+            maior_idade = dicionario['idade']
         
+        if dicionario['idade'] < menor_idade:
+            menor_idade = dicionario['idade']
+            
     idade_média = soma_idade / total_cadastros
     
     # Relatório
     print(f'======== Estatísticas ========\n')
     print(f'Pacientes cadastrados: {total_cadastros} Pacientes')
     print(f'Idade média dos pacientes: {idade_média:.0f} Anos')
+    print(f'Paciente mais novo: {menor_idade} anos')
     print(f'Paciente mais velho: {maior_idade} Anos')
     print(f'='*30, '\n')
+    
 # Opção 3: Buscar paciente
 def buscar():
     print("Buscar")
 
 #opção 4: Listar todos os pacientes
 def lista():
-    print(f"{'NOME':^30}|{'IDADE':^7}|{'TELEFONE':^16}|")
+    print('='*20, 'LISTA DE PACIENTES', '='*20, '\n')
+    print(f"{'NOME':^30}|{'IDADE':^7}|{'TELEFONE':^21}|")
     for c in lista_cadastro:
 
         for chave, valor in c.items():
@@ -70,8 +77,9 @@ def lista():
             if chave == 'idade':
                 print(f"{valor:^7}", end="|")
             if chave == 'telefone':
-                print(f"{valor:^15}", '|')                
-        
+                print(f"{valor:^20}", '|')                
+    
+    print('='*60)
            
     print("\n")
 
