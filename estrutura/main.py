@@ -4,6 +4,24 @@
 paciente = dict()
 lista_cadastro = list()
 
+####################################################################
+#TESTE DE CADASTRO
+paciente['nome'] = 'Marcos Antonio da Silva'
+paciente['idade'] = 74
+paciente['telefone'] = '(11) 99999-9999'
+lista_cadastro.append(paciente.copy())
+
+paciente['nome'] = 'Ana Julia da Silva'
+paciente['idade'] = 45
+paciente['telefone'] = '(99) 44444-4444'
+lista_cadastro.append(paciente.copy())
+
+paciente['nome'] = 'Silvana Maria Antonia'
+paciente['idade'] = 33
+paciente['telefone'] = '(11) 33333-41111'
+lista_cadastro.append(paciente.copy())
+####################################################################
+
 
 # Opção 1: Cadastrar pacientes.
 def cadastro():
@@ -16,25 +34,43 @@ def cadastro():
     print("\nCADASTRO REALIZADO COM SUCESSO!\n")
     
 # Opção 2: Ver estatísticas
-def estatiscicas():
-    print("Estatísticas")
+def estatisticas():
+    total_cadastros = 0
+    soma_idade = 0
+    maior_idade = 0
+ 
+    for dicionario in lista_cadastro:
+        total_cadastros += 1  # Quantidade total de pacientes
+        
+        soma_idade += dicionario['idade']   # Soma idade dos pacientes
     
+    if dicionario['idade'] > maior_idade:   # Paciente mais novo e mais velho
+        maior_idade = dicionario['idade']
+        
+    idade_média = soma_idade / total_cadastros
+    
+    # Relatório
+    print(f'======== Estatísticas ========\n')
+    print(f'Pacientes cadastrados: {total_cadastros} Pacientes')
+    print(f'Idade média dos pacientes: {idade_média:.0f} Anos')
+    print(f'Paciente mais velho: {maior_idade} Anos')
+    print(f'='*30, '\n')
 # Opção 3: Buscar paciente
 def buscar():
     print("Buscar")
 
 #opção 4: Listar todos os pacientes
 def lista():
-    print(f"{'NOME':^30}|{'IDADE':^}|{'TELEFONE':^15}|")
+    print(f"{'NOME':^30}|{'IDADE':^7}|{'TELEFONE':^16}|")
     for c in lista_cadastro:
 
         for chave, valor in c.items():
             if chave == 'nome':
                 print(f"{valor:<30}", end='|')
             if chave == 'idade':
-                print(f"{valor:^5}", end="|")
+                print(f"{valor:^7}", end="|")
             if chave == 'telefone':
-                print(f"{valor:^15}", end='|')                
+                print(f"{valor:^15}", '|')                
         
            
     print("\n")
@@ -60,7 +96,7 @@ def menu():
             cadastro()
         
         elif opcao == 2: # Opção para visualizar as estatísticas
-            estatiscicas()
+            estatisticas()
             
         elif opcao == 3: # Opção para pesquisar paciente
             buscar()
@@ -77,4 +113,5 @@ def menu():
         
 if __name__ == "__main__":
     menu()
-    
+
+
