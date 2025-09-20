@@ -77,7 +77,7 @@ def buscar():
         valor += 1
         
 #opção 4: Listar todos os pacientes
-def lista():
+def relatorio():
     print('='*20, 'LISTA DE PACIENTES', '='*20, '\n')
     print(f"{'NOME':^30}|{'IDADE':^7}|{'TELEFONE':^21}|")
     for c in lista_cadastro:
@@ -121,7 +121,7 @@ def menu():
             buscar()
         
         elif opcao == 4: # Opção para listar pacientes 
-            lista()
+            relatorio()
         
         elif opcao == 5: # Opção para sair
             sair()
