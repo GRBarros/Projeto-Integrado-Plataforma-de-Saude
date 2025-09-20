@@ -6,12 +6,12 @@ lista_cadastro = list()
 
 ####################################################################
 #TESTE DE CADASTRO
-paciente['nome'] = 'Marcos Antonio da Silva'
+paciente['nome'] = 'Marcos Antonio Da Silva'
 paciente['idade'] = 74
 paciente['telefone'] = '(11) 99999-9999'
 lista_cadastro.append(paciente.copy())
 
-paciente['nome'] = 'Ana Julia da Silva'
+paciente['nome'] = 'Ana Julia Da Silva'
 paciente['idade'] = 45
 paciente['telefone'] = '(99) 44444-4444'
 lista_cadastro.append(paciente.copy())
@@ -26,7 +26,7 @@ lista_cadastro.append(paciente.copy())
 # Opção 1: Cadastrar pacientes.
 def cadastro():
     print("==== CADASTRO DE PACIENTE ====")
-    paciente['nome'] = str(input("Nome do paciente: ")).capitalize()
+    paciente['nome'] = str(input("Nome do paciente: ")).title()
     paciente['idade'] = int(input("Idade: "))
     paciente['telefone'] = str(input("Telefone: "))
     lista_cadastro.append(paciente.copy())
@@ -63,8 +63,19 @@ def estatisticas():
     
 # Opção 3: Buscar paciente
 def buscar():
-    print("Buscar")
-
+    valor = 0
+    buscar_paciente = input('Digite o nome do paciente: ').title()
+    for y in lista_cadastro:
+        if lista_cadastro[valor]['nome'] == buscar_paciente:
+            print()
+            print('='* 5, 'INFORMAÇÃO DO PACIENTE', '='*5 )
+            print('Paciente: ', lista_cadastro[valor]['nome'])
+            print('Idade: ', lista_cadastro[valor]['idade'])
+            print('Telefone: ', lista_cadastro[valor]['telefone'])
+            print('='*34)
+            print()
+        valor += 1
+        
 #opção 4: Listar todos os pacientes
 def lista():
     print('='*20, 'LISTA DE PACIENTES', '='*20, '\n')
@@ -116,7 +127,7 @@ def menu():
             sair()
             
         else:
-            print("Opção inválida! Tente novamente.\n")
+            print('Opção inválida! Tente novamente.\n')
             menu()
         
 if __name__ == "__main__":
